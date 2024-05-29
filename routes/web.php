@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\studentController;
+use App\Http\Controllers\foodMenuController; // Import the foodMenuController
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,9 @@ Route::middleware([
 Route::view('/studentinput','studentinput');
 Route::post('/store',[studentController::class, 'store']);
 Route::get('/studentshow',[studentController::class, 'show']);
+
+
+//food menu test
+Route::view('/input','input');
+Route::post('/store',[foodMenuController::class, 'store']);
+Route::get('/showkitchen',[foodMenuController::class, 'show']);

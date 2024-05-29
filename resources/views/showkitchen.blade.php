@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <table>
-        <tr>
-            <th>Table Number</th>
-            <th>Food Type</th>
-        </tr>
-        @foreach($data as $item)
-        <tr>
-            <td>{{ $item->table_number }}</td>
-            <td>{{ $item->food_type }}</td>
-        </tr>
-        @endforeach
+<body class="bg-gray-100 py-8 px-4">
+    <table class="w-full text-left bg-white rounded-lg overflow-hidden shadow-lg">
+        <thead class="bg-gray-200">
+            <tr>
+                <th class="py-4 px-6">Table Number</th>
+                <th class="py-4 px-6">Food Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($data as $item)
+            <tr class="{{ $loop->iteration % 2 === 0 ? 'bg-gray-100' : '' }}">
+                <td class="py-4 px-6">{{ $item->table_number }}</td>
+                <td class="py-4 px-6">{{ $item->food_type }}</td>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
 </body>
 </html>
